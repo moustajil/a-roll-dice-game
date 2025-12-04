@@ -64,10 +64,12 @@ body {
 }
 
 @keyframes twinkle {
+
   0%,
   100% {
     opacity: 0.8;
   }
+
   50% {
     opacity: 0.4;
   }
@@ -78,6 +80,7 @@ body {
     transform: translateX(0) translateY(0) rotate(25deg);
     opacity: 1;
   }
+
   100% {
     transform: translateX(120vw) translateY(50vh) rotate(25deg);
     opacity: 0;
@@ -117,7 +120,7 @@ body {
 
 /* Player Sections */
 .player {
-  width: 50%;
+  width: 60%;
   height: 100%;
   text-align: center;
   padding: 50px 20px;
@@ -133,7 +136,6 @@ body {
   border-right: 2px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Player Icon */
 .player i {
   font-size: 60px;
   color: cyan;
@@ -141,17 +143,15 @@ body {
   animation: glow 2s infinite alternate;
 }
 
-/* Player Name */
 .player h3 {
   font-size: 22px;
   letter-spacing: 2px;
 }
 
-/* Score */
 .score {
   background: white;
-  border-radius: 20px;
-  width: 50px;
+  border-radius: 10px;
+  width: 150px;
   color: #222;
   animation: scorePulse 2s infinite ease-in-out;
 }
@@ -161,7 +161,7 @@ body {
   color: #111;
   width: 180px;
   padding: 15px;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
@@ -176,7 +176,7 @@ body {
 
 .btn-play {
   padding: 12px 50px;
-  border-radius: 30px;
+  border-radius: 10px;
   background: linear-gradient(to right, #2196f3, #00e5ff);
   border: none;
   font-size: 18px;
@@ -186,7 +186,25 @@ body {
   box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
 }
 
+.btn-hold {
+  padding: 12px 50px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #2196f3, #00e5ff);
+  border: none;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+}
+
+
 .btn-play:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px cyan;
+}
+
+.btn-hold:hover {
   transform: scale(1.1);
   box-shadow: 0 0 30px cyan;
 }
@@ -196,23 +214,132 @@ body {
   box-shadow: 0 0 12px rgba(255, 0, 80, 0.5);
 }
 
+.red-hold {
+  background: linear-gradient(to right, #e91e63, #ff1744);
+  box-shadow: 0 0 12px rgba(255, 0, 80, 0.5);
+}
+
 .btn-play.red:hover {
   box-shadow: 0 0 30px red;
   transform: scale(1.1);
 }
 
+.red-hold:hover {
+  box-shadow: 0 0 30px red;
+  transform: scale(1.1);
+}
+
+.roll-dice {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.inf-player {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  /* Use auto to avoid stretching */
+  width: 40vw;
+  padding: 30px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: white;
+  z-index: 10;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.inf-player .input-names {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.inf-player input {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.inf-player input:focus {
+  border-color: #2196f3;
+  box-shadow: 0 0 5px rgba(33, 150, 243, 0.4);
+}
+
+.inf-player .start {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #2196f3, #00e5ff);
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+  border: none;
+}
+
+.inf-player .start:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(92, 90, 90, 0.151);
+  z-index: 5;
+}
+
+
+
 @keyframes glow {
-  from { text-shadow: 0 0 10px cyan; }
-  to { text-shadow: 0 0 25px cyan; }
+  from {
+    text-shadow: 0 0 10px cyan;
+  }
+
+  to {
+    text-shadow: 0 0 25px cyan;
+  }
 }
 
 @keyframes scorePulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.07); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.07);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

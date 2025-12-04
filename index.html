@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Training</title>
+    <title>Dice Game</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
         integrity="sha512-XcIsjKMcuVe0Ucj/xgIXQnytNwBttJbNjltBV18IOnru2lDPe9KRRyvCXw6Y5H415vbBLRm8+q6fmLUU7DfO6Q=="
@@ -12,23 +12,29 @@
 </head>
 
 <body>
-    <div class="stars"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
+    <!-- Player info popup -->
+    <div class="inf-player">
+        <h1>Enter names of players</h1>
+        <div class="input-names">
+            <input type="text" placeholder="Enter name of first player" required class="user-name-1">
+            <input type="text" placeholder="Enter name of second player" required class="user-name-2">
+        </div>
+        <button class="start">Start Game</button>
+    </div>
+    <div class="bg"></div>
 
+    <!-- Game Card -->
     <div class="game-card">
-        <div class="player p1">
+        <div class="player p1 active">
             <i class="ri-user-3-line"></i>
             <h3>Player 1</h3>
-
-            <h1 class="score">0</h1>
-
-            <div class="current-box">
+            <div class="score">
+                <h1>0</h1>
+            </div>
+            <div class="current-box current-box-1">
                 <p>Current</p>
                 <h2>0</h2>
             </div>
-
             <button class="btn-play btn-play-1">Play</button>
             <button class="btn-hold">Hold</button>
         </div>
@@ -40,38 +46,19 @@
         <div class="player p2">
             <i class="ri-user-3-line"></i>
             <h3>Player 2</h3>
-
             <div class="score">
                 <h1>0</h1>
             </div>
-
-            <div class="current-box">
+            <div class="current-box current-box-2">
                 <p>Current</p>
                 <h2>0</h2>
             </div>
-
-            <button class="btn-play red btn-play-2">Play</button>
-            <button class="btn-hold red-hold">Hold</button>
+            <button class="btn-play btn-play-2">Play</button>
+            <button class="btn-hold">Hold</button>
         </div>
-    </div>
-
-    <div class="inf-player hidden">
-        <h1>Enter names of players</h1>
-
-        <div class="input-names">
-            <input type="text" placeholder="Enter name of first player" required class="user-name-1">
-            <input type="text" placeholder="Enter name of second player" required class="user-name-2">
-        </div>
-
-        <button class="start">Start Game</button>
-    </div>
-
-    <div class="bg hidden">
-
     </div>
 
     <script src="script.js"></script>
 </body>
-
 
 </html>
